@@ -60,7 +60,7 @@ Found a way to make an agent better? Contributions welcome:
 
 Used these agents successfully? Share your story:
 
-- Post in [GitHub Discussions](../../discussions)
+- Post in [GitHub Discussions](https://github.com/msitarzewski/agency-agents/discussions)
 - Add a case study to the README
 - Write a blog post and link it
 - Create a video tutorial
@@ -87,6 +87,12 @@ Every agent should follow this structure:
 name: Agent Name
 description: One-line description of the agent's specialty and focus
 color: colorname or "#hexcode"
+emoji: 🎯
+vibe: One-line personality hook — what makes this agent memorable
+services:                              # optional — only if the agent requires external services
+  - name: Service Name
+    url: https://service-url.com
+    tier: free                         # free, freemium, or paid
 ---
 
 # Agent Name
@@ -142,6 +148,29 @@ Measurable outcomes:
 Advanced techniques and approaches the agent masters
 ```
 
+### Agent Structure
+
+Agent files are organized into two semantic groups that map to
+OpenClaw's workspace format and help other tools parse your agent:
+
+#### Persona (who the agent is)
+- **Identity & Memory** — role, personality, background
+- **Communication Style** — tone, voice, approach
+- **Critical Rules** — boundaries and constraints
+
+#### Operations (what the agent does)
+- **Core Mission** — primary responsibilities
+- **Technical Deliverables** — concrete outputs and templates
+- **Workflow Process** — step-by-step methodology
+- **Success Metrics** — measurable outcomes
+- **Advanced Capabilities** — specialized techniques
+
+No special formatting is required — just keep persona-related sections
+(identity, communication, rules) grouped separately from operational
+sections (mission, deliverables, workflow, metrics). The `convert.sh`
+script uses these section headers to automatically split agents into
+tool-specific formats.
+
 ### Agent Design Principles
 
 1. **🎭 Strong Personality**
@@ -168,6 +197,22 @@ Advanced techniques and approaches the agent masters
    - What patterns the agent recognizes
    - How it improves over time
    - What it remembers between sessions
+
+### External Services
+
+Agents may depend on external services (APIs, platforms, SaaS tools) when
+those services are essential to the agent's function. When they do:
+
+1. **Declare dependencies** in frontmatter using the `services` field
+2. **The agent must stand on its own** — strip the API calls and there
+   should still be a useful persona, workflow, and expertise underneath
+3. **Don't duplicate vendor docs** — reference them, don't reproduce them.
+   The agent file should read like an agent, not a getting-started guide
+4. **Prefer services with free tiers** so contributors can test the agent
+
+The test: *is this agent for the user, or for the vendor?* An agent that
+solves the user's problem using a service belongs here. A service's
+quickstart guide wearing an agent costume does not.
 
 ### What Makes a Great Agent?
 
@@ -303,10 +348,10 @@ Contributors who make significant contributions will be:
 
 ## 🤔 Questions?
 
-- **General Questions**: [GitHub Discussions](../../discussions)
-- **Bug Reports**: [GitHub Issues](../../issues)
-- **Feature Requests**: [GitHub Issues](../../issues)
-- **Community Chat**: [Join our discussions](../../discussions)
+- **General Questions**: [GitHub Discussions](https://github.com/msitarzewski/agency-agents/discussions)
+- **Bug Reports**: [GitHub Issues](https://github.com/msitarzewski/agency-agents/issues)
+- **Feature Requests**: [GitHub Issues](https://github.com/msitarzewski/agency-agents/issues)
+- **Community Chat**: [Join our discussions](https://github.com/msitarzewski/agency-agents/discussions)
 
 ---
 
@@ -346,7 +391,7 @@ Your contributions make The Agency better for everyone. Whether you're:
 
 **Questions? Ideas? Feedback?**
 
-[Open an Issue](../../issues) • [Start a Discussion](../../discussions) • [Submit a PR](../../pulls)
+[Open an Issue](https://github.com/msitarzewski/agency-agents/issues) • [Start a Discussion](https://github.com/msitarzewski/agency-agents/discussions) • [Submit a PR](https://github.com/msitarzewski/agency-agents/pulls)
 
 Made with ❤️ by the community
 
